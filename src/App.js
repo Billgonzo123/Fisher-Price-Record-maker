@@ -6,13 +6,14 @@ import { useRef } from 'react';
 
 
 function App() {
-const generatedFile = useRef(scadGen(musicFormatExample));
-console.log(generatedFile.current)
+  const generatedFile = useRef(scadGen(musicFormatExample));
+
+  const blob = new Blob([generatedFile.current.text], { type: "text/plain" });
+  const url = URL.createObjectURL(blob);
+
   return (
     <div className="App">
-<p>
-{`${generatedFile.current}`}
-</p>
+      <a href={url} download={`${generatedFile.current.title}.scad`}>Download</a>
     </div>
   );
 }
