@@ -1,23 +1,18 @@
 import logo from './logo.svg';
 import './App.css';
+import { scadGen } from './resources/SCAD-GEN';
+import { musicFormatExample } from './resources/noteKey';
+import { useRef } from 'react';
+
 
 function App() {
+const generatedFile = useRef(scadGen(musicFormatExample));
+console.log(generatedFile.current)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+<p>
+{`${generatedFile.current}`}
+</p>
     </div>
   );
 }
