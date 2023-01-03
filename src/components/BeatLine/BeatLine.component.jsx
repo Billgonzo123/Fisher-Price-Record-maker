@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import './beatLine.css';
 
 export const BeatLine = ({ beat, pos, setNotes, song }) => {

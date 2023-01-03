@@ -8,7 +8,8 @@ export const Staff = ({ notes, song, setNotes }) => {
         <div className="staff-container">
             <div className={'staff-component'}>
 
-                {notes[song].map((note, i) => {
+                { 
+                notes[song].map((note, i) => {
                     //we dont want to render a staff line for the last value in the note array as it is the songs title, not a note
                     if (i === 16) return ('');
 
