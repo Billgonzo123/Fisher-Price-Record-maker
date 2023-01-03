@@ -1,0 +1,17 @@
+.staff-component{
+background-color: brown;
+display: grid;
+grid-auto-rows: 20px;
+grid-auto-columns: 20px;
+grid-column-gap: 3px;
+grid-row-gap: 3px;
+padding: 10px;
+
+}
+
+.staff-container{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
