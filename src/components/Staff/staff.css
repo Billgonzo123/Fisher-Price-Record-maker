@@ -1,4 +1,5 @@
 .staff-component{
+    overflow: auto;
 background-color: brown;
 display: grid;
 grid-auto-rows: 20px;
@@ -14,4 +15,14 @@ padding: 10px;
     width: 100%;
     justify-content: center;
     align-items: center;
+}
+
+.fixed-notes{
+    position: sticky;
+    font-size: 18.3px;
+    background-color: aliceblue;
+    border: 1px solid black;
+    width: 28px;
+    top: 0px;
+    left: 0px;
 }

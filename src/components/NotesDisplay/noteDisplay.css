@@ -1,0 +1,14 @@
+.noteDisplay{
+    text-align: right;
+    margin: -2px;
+   height: 10px;
+   font-weight: bold;
+}
+
+.evenNote{
+    color: rgb(235, 234, 230);
+}
+
+.oddNote{
+    color:rgb(141, 141, 141);
+}

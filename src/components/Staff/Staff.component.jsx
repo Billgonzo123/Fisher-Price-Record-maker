@@ -1,13 +1,15 @@
 import { useEffect } from "react"
 import { BeatLine } from "../BeatLine/BeatLine.component"
+import { NotesDisplay } from "../NotesDisplay/NotesDisplay.component"
 import './staff.css'
 
 export const Staff = ({ notes, song, setNotes }) => {
 
     return (
         <div className="staff-container">
-            <div className={'staff-component'}>
 
+            <div className={'staff-component'}>
+                <NotesDisplay />
                 { 
                 notes[song].map((note, i) => {
                     //we dont want to render a staff line for the last value in the note array as it is the songs title, not a note
