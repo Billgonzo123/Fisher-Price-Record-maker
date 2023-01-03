@@ -1,7 +1,8 @@
+import { useEffect } from "react"
 import { BeatLine } from "../BeatLine/BeatLine.component"
 import './staff.css'
 
-export const Staff = ({ notes, song }) => {
+export const Staff = ({ notes, song, setNotes }) => {
 
     return (
         <div className="staff-container">
@@ -13,7 +14,7 @@ export const Staff = ({ notes, song }) => {
 
                     //render each beat
                     return note.map((beat, j) => {
-                        return <BeatLine key={`beat${i}-${j}`} beat={beat} pos={{ row: i, col: j }} />
+                        return <BeatLine key={`beat-${i}-${j}-${beat}`} beat={beat} pos={{ row: i, col: j }} setNotes = {setNotes} song = {song}  />
                     });
                 })}
 
