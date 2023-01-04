@@ -16,7 +16,7 @@ export const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) =
     ];
 
     const playNote = (note, beat) => {
-        console.log(noteName[note])
+        
         if (!beat) synth.triggerAttackRelease(noteName[note], "8n");
     };
 
@@ -39,7 +39,6 @@ export const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) =
                 default:
             };
             const val = old[song][row][col];
-            console.log(val)
             old[song][row][col] = (val) ? 0 : 1;
             return [...old];
         })
