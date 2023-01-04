@@ -2,7 +2,13 @@
 import './beatLine.css';
 import * as Tone from 'tone'
 
-const synth = new Tone.Synth().toDestination();
+const synth = new Tone.PolySynth();
+const reverb = new Tone.Reverb(8).toDestination();
+const limiter = new Tone.Volume(-20);
+const filter = new Tone.Filter(7000, 'lowpass');
+synth.connect(limiter);
+limiter.connect(filter).toDestination();;
+filter.connect(reverb);
 
 export const BeatLine = ({ beat, pos, setNotes, song }) => {
     const noteName = [
