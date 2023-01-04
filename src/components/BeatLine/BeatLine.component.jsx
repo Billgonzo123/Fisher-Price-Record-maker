@@ -16,26 +16,26 @@ export const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) =
     ];
 
     const playNote = (note, beat) => {
-console.log(noteName[note])
-       if (!beat) synth.triggerAttackRelease(noteName[note], "8n");
+        console.log(noteName[note])
+        if (!beat) synth.triggerAttackRelease(noteName[note], "8n");
     };
 
     let { row, col } = pos;
-    switch(true){
-        case row === 15: row+=3
-        break;
+    switch (true) {
+        case row === 15: row += 3
+            break;
         case row > 11: row++
-        break;
+            break;
         default:
     };
 
     const handleNoteToggle = () => {
         setNotes(old => {
-            switch(true){
-                case row === 18: row-=3
-                break;
+            switch (true) {
+                case row === 18: row -= 3
+                    break;
                 case row > 12: row--
-                break;
+                    break;
                 default:
             };
             const val = old[song][row][col];
@@ -46,11 +46,13 @@ console.log(noteName[note])
     };
 
     const updateCurrentRC = () => {
-        setMousePos( old => {
-            return [row, col]
-        });
+        if (mousePos[0] >= 0) {
+            setMousePos(old => {
+                return [row, col]
+            });
+        }
     }
     return (
-        <button onMouseEnter={updateCurrentRC} onMouseDown={e => {handleNoteToggle(); playNote(row, beat);}}  className={`staff-line ${(beat) ? 'staff-line-note' : ''} ${(row % 2 === 0) ? 'evenBlock' : 'oddBlock'  } ${(mousePos[0] === row || mousePos[1] === col) ? 'highlighted' : ''}`} style={{ gridColumn: `${col + 1}`, gridRow: `${row + 1}` }} />
+        <button onMouseEnter={updateCurrentRC} onMouseDown={e => { handleNoteToggle(); playNote(row, beat); }} className={`staff-line ${(beat) ? 'staff-line-note' : ''} ${(row % 2 === 0) ? 'evenBlock' : 'oddBlock'} ${(mousePos[0] === row || mousePos[1] === col) ? 'highlighted' : ''}`} style={{ gridColumn: `${col + 1}`, gridRow: `${row + 1}` }} />
     )
 };

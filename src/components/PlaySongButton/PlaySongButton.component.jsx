@@ -25,7 +25,7 @@ export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos}) 
         const beatLength = 25000 / maxBeats;
         for (let i = 0; i <= maxBeats; i++) {
            intervals.push(setTimeout(() => {
-                setMousePos([-1, i])
+                (i !== maxBeats) ? setMousePos([-1, i]) : setMousePos([0, 0]);
                 if (notes[song][0][i]) synth.triggerAttackRelease(noteName[0], "8n");
                 if (notes[song][1][i]) synth.triggerAttackRelease(noteName[1], "8n");
                 if (notes[song][2][i]) synth.triggerAttackRelease(noteName[2], "8n");
