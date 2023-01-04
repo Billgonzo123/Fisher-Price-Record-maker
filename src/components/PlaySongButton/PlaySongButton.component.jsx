@@ -9,22 +9,23 @@ synth.connect(limiter);
 limiter.connect(filter).toDestination();;
 filter.connect(reverb)
 
+let intervals = [];
 
 
-
-export const PlaySongButton = ({ notes, song, maxBeats }) => {
-
+export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos}) => {
 
     const noteName = [
         'D6', 'C6', 'B5', 'A5', 'G5', 'F5', 'E5', 'D5', 'C5', 'B4', 'A4', 'G4', 'E4', 'D4', 'C4', 'G3'
     ];
 
     const playSong = () => {
-
+        intervals.forEach(clearInterval);
+        intervals = [];
 
         const beatLength = 25000 / maxBeats;
         for (let i = 0; i <= maxBeats; i++) {
-            setTimeout(() => {
+           intervals.push(setTimeout(() => {
+                setMousePos([-1, i])
                 if (notes[song][0][i]) synth.triggerAttackRelease(noteName[0], "8n");
                 if (notes[song][1][i]) synth.triggerAttackRelease(noteName[1], "8n");
                 if (notes[song][2][i]) synth.triggerAttackRelease(noteName[2], "8n");
@@ -42,8 +43,8 @@ export const PlaySongButton = ({ notes, song, maxBeats }) => {
                 if (notes[song][14][i]) synth.triggerAttackRelease(noteName[14], "8n");
                 if (notes[song][15][i]) synth.triggerAttackRelease(noteName[15], "8n");
 
-            }, beatLength * i)
-
+            }, beatLength * i));
+            
         }
 
     };

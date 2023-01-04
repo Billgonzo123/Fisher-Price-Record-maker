@@ -14,6 +14,7 @@ function App() {
   const [notes, setNotes] = useState(musicFormatExample);
   const [maxBeats, setMaxBeats] = useState(80);
   const [song, setSong] = useState(0);
+  const [mousePos, setMousePos] = useState([0,0])
 
   useEffect(() => {
     console.log('ReRender matrix: ', maxBeats)
@@ -67,8 +68,8 @@ function App() {
   return (
     <div className="App">
       <Parameters setMaxBeats={setMaxBeats} maxBeats={maxBeats} />
-      <Staff notes={notes} song={song} setNotes={setNotes} />
-      <PlaySongButton notes = {notes} song={song} maxBeats={maxBeats} />
+      <Staff notes={notes} song={song} setNotes={setNotes} mousePos={mousePos} setMousePos = {setMousePos} />
+      <PlaySongButton notes = {notes} song={song} maxBeats={maxBeats} mousePos={mousePos} setMousePos = {setMousePos}/>
       <button onMouseDown={download} >Download</button>
     </div>
   );

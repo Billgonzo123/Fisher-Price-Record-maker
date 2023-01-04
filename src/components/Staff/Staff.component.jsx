@@ -4,7 +4,7 @@ import { NotesDisplay } from "../NotesDisplay/NotesDisplay.component"
 import './staff.css'
 
 
-export const Staff = ({ notes, song, setNotes }) => {
+export const Staff = ({ notes, song, setNotes , mousePos, setMousePos}) => {
 
 
     return (
@@ -19,7 +19,7 @@ export const Staff = ({ notes, song, setNotes }) => {
 
                     //render each beat
                     return note.map((beat, j) => {
-                        return <BeatLine key={`beat-${i}-${j}-${beat}`}  beat={beat} pos={{ row: i, col: j }} setNotes = {setNotes} song = {song}  />
+                        return <BeatLine key={`beat-${i}-${j}-${beat}`}  beat={beat} pos={{ row: i, col: j }} setNotes = {setNotes} song = {song} mousePos={mousePos} setMousePos = {setMousePos}  />
                     });
                 })}
 

@@ -10,7 +10,7 @@ synth.connect(limiter);
 limiter.connect(filter).toDestination();;
 filter.connect(reverb);
 
-export const BeatLine = ({ beat, pos, setNotes, song }) => {
+export const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) => {
     const noteName = [
         'D6', 'C6', 'B5', 'A5', 'G5', 'F5', 'E5', 'D5', 'C5', 'B4', 'A4', 'G4', '', 'E4', 'D4', 'C4', '', '', 'G3'
     ];
@@ -45,7 +45,12 @@ console.log(noteName[note])
         })
     };
 
+    const updateCurrentRC = () => {
+        setMousePos( old => {
+            return [row, col]
+        });
+    }
     return (
-        <button onMouseDown={e => {handleNoteToggle(); playNote(row, beat);}}  className={`staff-line ${(beat) ? 'staff-line-note' : ''} ${(row % 2 === 0) ? 'evenBlock' : 'oddBlock'  }`} style={{ gridColumn: `${col + 1}`, gridRow: `${row + 1}` }} />
+        <button onMouseEnter={updateCurrentRC} onMouseDown={e => {handleNoteToggle(); playNote(row, beat);}}  className={`staff-line ${(beat) ? 'staff-line-note' : ''} ${(row % 2 === 0) ? 'evenBlock' : 'oddBlock'  } ${(mousePos[0] === row || mousePos[1] === col) ? 'highlighted' : ''}`} style={{ gridColumn: `${col + 1}`, gridRow: `${row + 1}` }} />
     )
 };
