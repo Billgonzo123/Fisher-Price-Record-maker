@@ -4,13 +4,15 @@ import { scadGen } from './resources/SCAD-GEN';
 import { musicFormatExample } from './resources/noteKey';
 import { Staff } from './components/Staff/Staff.component';
 import { Parameters } from './components/Parameters/Parameters';
+
 import { useEffect, useRef, useState } from 'react';
+import { PlaySongButton } from './components/PlaySongButton/PlaySongButton.component';
 
 
 function App() {
 
   const [notes, setNotes] = useState(musicFormatExample);
-  const [maxBeats, setMaxBeats] = useState(16);
+  const [maxBeats, setMaxBeats] = useState(80);
   const [song, setSong] = useState(0);
 
   useEffect(() => {
@@ -26,12 +28,12 @@ function App() {
           const addition = Array(numToAdd).fill(0);
           old[song][i] = old[song][i].concat(addition);
         }
-     
+
 
       } else if (maxBeats < length) {
         const numToSub = length - maxBeats;
         for (let i = 0; i < 16; i++) {
-          old[song][i] = old[song][i].slice(0, length-numToSub);
+          old[song][i] = old[song][i].slice(0, length - numToSub);
         }
 
       };
@@ -66,7 +68,7 @@ function App() {
     <div className="App">
       <Parameters setMaxBeats={setMaxBeats} maxBeats={maxBeats} />
       <Staff notes={notes} song={song} setNotes={setNotes} />
-
+      <PlaySongButton notes = {notes} song={song} maxBeats={maxBeats} />
       <button onMouseDown={download} >Download</button>
     </div>
   );
