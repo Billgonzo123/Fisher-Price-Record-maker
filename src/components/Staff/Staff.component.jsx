@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+
 import { BeatLine } from "../BeatLine/BeatLine.component"
 import { NotesDisplay } from "../NotesDisplay/NotesDisplay.component"
 import './staff.css'
