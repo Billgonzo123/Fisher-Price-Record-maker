@@ -1,6 +1,9 @@
 import * as Tone from 'tone'
 
  const synth = new Tone.PolySynth().toDestination();
+ const reverb = new Tone.Reverb(6).toDestination(); 
+ synth.connect(reverb)
+
 
  export const PlaySongButton = ({notes, song, maxBeats}) => {
 
