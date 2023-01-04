@@ -7,6 +7,7 @@ import { Parameters } from './components/Parameters/Parameters';
 
 import { useEffect, useRef, useState } from 'react';
 import { PlaySongButton } from './components/PlaySongButton/PlaySongButton.component';
+import { RecordPreview } from './components/RecordPreview/RecordPreview.component';
 
 
 function App() {
@@ -70,7 +71,8 @@ function App() {
       <Parameters setMaxBeats={setMaxBeats} maxBeats={maxBeats} />
       <Staff notes={notes} song={song} setNotes={setNotes} mousePos={mousePos} setMousePos = {setMousePos} />
       <PlaySongButton notes = {notes} song={song} maxBeats={maxBeats} mousePos={mousePos} setMousePos = {setMousePos}/>
-      <button onMouseDown={download} >Download</button>
+      <RecordPreview notes = {notes} maxBeats={maxBeats} song={song}/>
+      <button onMouseDown={download} >Download SCAD File</button>
     </div>
   );
 }

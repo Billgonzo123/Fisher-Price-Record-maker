@@ -4,7 +4,7 @@ import * as Tone from 'tone'
 
 const synth = new Tone.PolySynth();
 const reverb = new Tone.Reverb(8).toDestination();
-const limiter = new Tone.Volume(-30);
+const limiter = new Tone.Volume(-13);
 const filter = new Tone.Filter(7000, 'lowpass');
 synth.connect(limiter);
 limiter.connect(filter).toDestination();;
