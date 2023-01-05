@@ -21,6 +21,8 @@ export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos}) 
     const playSong = () => {
         intervals.forEach(clearInterval);
         intervals = [];
+        setMousePos([0,0])
+        if (mousePos[0] === -1) return;
 
         const beatLength = 25000 / maxBeats;
         for (let i = 0; i <= maxBeats; i++) {
@@ -50,6 +52,6 @@ export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos}) 
     };
 
     return (
-        <button type="button" onClick={playSong}>Play Tune</button>
+        <button type="button" onClick={playSong}>Play/Stop</button>
     )
 }

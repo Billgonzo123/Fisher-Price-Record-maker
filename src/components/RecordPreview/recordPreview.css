@@ -1,3 +1,15 @@
-.record-preview{
+.record-preview-animate{
+    pointer-events: none;
+    transform-origin: center;
+    animation: rotateDisc 25s linear;
     
+}
+
+@keyframes rotateDisc{
+from{
+transform: rotate(0deg);
+}
+to{
+    transform: rotate(360deg);
+}
 }
