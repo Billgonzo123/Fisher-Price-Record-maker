@@ -2,28 +2,28 @@
 border: 2px solid black;
 }
 .evenBlock{
-    background-color: rgb(235, 234, 230);
+    background-color: #FFC145;
 }
 
 .oddBlock{
-    background-color:rgb(141, 141, 141);
+    background-color: #FFFFFB;
 }
 
 .staff-line:hover{
-    border: 4px solid rgba(0, 8, 252, 0);
+    border: 4px solid #3a3f82;
 }
 
 .staff-line-note{
-    background-color: rgb(71, 77, 252);
+    background-color: #5B5F97;
 }
 
 .staff-line-note:hover{
-    background-color: rgb(16, 23, 201);
+    background-color: #3a3f82;
 }
 
 .highlighted{
-    border: 4px solid rgb(65, 15, 65);
-    animation: fadeBorder 800ms ;
+    border: 4px solid #c54444;
+
 }
 
 @keyframes fadeBorder{

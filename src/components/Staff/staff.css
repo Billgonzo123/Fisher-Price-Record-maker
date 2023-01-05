@@ -1,12 +1,13 @@
 .staff-component{
     overflow: auto;
-background-color: brown;
+background-color: #8282be;
 display: grid;
 grid-auto-rows: 20px;
 grid-auto-columns: 20px;
 grid-column-gap: 3px;
 grid-row-gap: 3px;
-padding: 10px;
+padding: 20px;
+margin: 30px;
 
 }
 

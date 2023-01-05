@@ -6,9 +6,9 @@
 }
 
 .evenNote{
-    color: rgb(235, 234, 230);
+    color: #FFC145;
 }
 
 .oddNote{
-    color:rgb(141, 141, 141);
+    color:#FFFFFB;
 }

@@ -8,6 +8,7 @@ import { Parameters } from './components/Parameters/Parameters';
 import { useEffect, useRef, useState } from 'react';
 import { PlaySongButton } from './components/PlaySongButton/PlaySongButton.component';
 import { RecordPreview } from './components/RecordPreview/RecordPreview.component';
+import { SongTitle } from './components/SongTitle/SongTitle.component';
 
 
 function App() {
@@ -47,9 +48,13 @@ function App() {
     });
   }, [maxBeats])
 
+  useEffect(() => {
+    setMaxBeats(notes[song][0].length)
+  }, [song])
 
-  function download() {
-    const generatedFile = scadGen(notes);
+
+  function download(textData) {
+    const generatedFile = textData;
     let blob = new Blob([generatedFile.text], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
 
@@ -68,11 +73,13 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Fisher Price Record Maker</h1>
+      <SongTitle notes= {notes} setNotes = {setNotes} song = {song} setSong = {setSong} />
       <Parameters setMaxBeats={setMaxBeats} maxBeats={maxBeats} />
       <Staff notes={notes} song={song} setNotes={setNotes} mousePos={mousePos} setMousePos = {setMousePos} />
       <PlaySongButton notes = {notes} song={song} maxBeats={maxBeats} mousePos={mousePos} setMousePos = {setMousePos}/>
       <RecordPreview notes = {notes} maxBeats={maxBeats} song={song} mousePos={mousePos}/>
-      <button onMouseDown={download} >Download SCAD File</button>
+      <button onMouseDown={() => download(scadGen(notes))} >Download SCAD File</button>
     </div>
   );
 }

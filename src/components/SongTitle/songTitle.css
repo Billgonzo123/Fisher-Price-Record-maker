@@ -1,0 +1,12 @@
+.song-title-container{
+    margin: 20px;
+}
+
+.song-title-container input{
+    border: 0px;
+    border-bottom: 1px solid black;
+    text-align: center;
+    font-size: 30px;
+    font-style: italic;
+    margin: 5px;
+}

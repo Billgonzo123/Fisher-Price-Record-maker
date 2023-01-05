@@ -41,7 +41,7 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
         //   draw_rectangle(ctx)
         ctx.beginPath();
         ctx.fillStyle = "lightgrey";
-        ctx.arc(250, 250, 250, 0, 2 * Math.PI);
+        ctx.arc(250, 250, 248, 0, 2 * Math.PI);
         ctx.fill()
         //draw inner circles
         ctx.moveTo(350,250);
@@ -79,7 +79,7 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
 
 
 
-    }, [notes]);
+    }, [notes, song]);
 
 
 
