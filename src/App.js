@@ -17,8 +17,8 @@ import { LoadFile } from './components/LoadSong/LoadSong.component';
 function App() {
 
   const [notes, setNotes] = useState(musicFormatExample);
-  const [maxBeats, setMaxBeats] = useState(80);
   const [song, setSong] = useState(0);
+  const [maxBeats, setMaxBeats] = useState(80);
   const [mousePos, setMousePos] = useState([0, 0])
 
   useEffect(() => {
@@ -54,17 +54,20 @@ function App() {
 
   //load notes from local storage if they are there
   useEffect(() => {
+    const savedNotes = JSON.parse(localStorage.getItem('savedNotes'))
+
     if (localStorage.getItem('savedNotes')) {
-      const savedNotes = JSON.parse(localStorage.getItem('savedNotes'))
       setNotes(savedNotes);
+      setMaxBeats(savedNotes[song][0].length);
     } else {
       localStorage.setItem('savedNotes', JSON.stringify(notes));
     };
 
+    
   }, [])
   //save notes to local storage on change
   useEffect(() => {
-   localStorage.setItem('savedNotes',JSON.stringify(notes));
+    localStorage.setItem('savedNotes', JSON.stringify(notes));
   }, [notes])
 
 
@@ -77,11 +80,11 @@ function App() {
       <Parameters setMaxBeats={setMaxBeats} maxBeats={maxBeats} />
       <Staff notes={notes} song={song} setNotes={setNotes} mousePos={mousePos} setMousePos={setMousePos} />
       <PlaySongButton notes={notes} song={song} maxBeats={maxBeats} mousePos={mousePos} setMousePos={setMousePos} />
-      <RecordPreview notes={notes} maxBeats={maxBeats} song={song} mousePos={mousePos} />
       <button onMouseDown={() => downloadScad(scadGen(notes))} >Download SCAD File</button>
       <button onMouseDown={() => downloadSave(notes[song])} >Save This Song</button>
-      <LoadFile setNotes={setNotes} song={song}/>
-  
+      <LoadFile setNotes={setNotes} song={song} setMaxBeats={setMaxBeats} />
+      <RecordPreview notes={notes} maxBeats={maxBeats} song={song} mousePos={mousePos} />
+
     </div>
   );
 }
