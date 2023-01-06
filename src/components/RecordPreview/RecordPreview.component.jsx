@@ -7,21 +7,21 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
 
     function drawPin(ctx, beat, i, angle) {
         //rotate from the center
-        const deg = (angle * beat)-90
+        const deg = (angle * beat) - 90
         ctx.translate(250, 250)
         ctx.rotate(-deg * Math.PI / 180);
         ctx.translate(-250, -250);
         // move along y axis to reach the inner radius
 
-        let space = (i < 9 && i >2 ) ? (150/11)*i-10 : (150/11/2)*i+2 ;
-        if (i>=9) space = (150/11/2)*i+42;
+        let space = (i < 9 && i > 2) ? (150 / 11) * i - 10 : (150 / 11 / 2) * i + 2;
+        if (i >= 9) space = (150 / 11 / 2) * i + 42;
 
         // draw the bar
         ctx.fillStyle = "rgb(10,10,180)";
         ctx.fillRect(
             250, // centered on x
             (space), // from the inner radius
-           4,
+            4,
             6); // until its own height
         ctx.translate(250, 250)
         ctx.rotate(deg * Math.PI / 180);
@@ -43,13 +43,13 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
         ctx.arc(250, 250, 248, 0, 2 * Math.PI);
         ctx.fill()
         //draw inner circles
-        ctx.moveTo(350,250);
-         ctx.arc(250, 250, 100, 0, 2 * Math.PI);
-         for (let line = 1; line <= 11; line++) {
-            ctx.moveTo(350+13.3636*line,250);
-            ctx.arc(250, 250, 100+13.3636*line, 0, 2 * Math.PI);
-            
-         }
+        ctx.moveTo(350, 250);
+        ctx.arc(250, 250, 100, 0, 2 * Math.PI);
+        for (let line = 1; line <= 11; line++) {
+            ctx.moveTo(350 + 13.3636 * line, 250);
+            ctx.arc(250, 250, 100 + 13.3636 * line, 0, 2 * Math.PI);
+
+        }
 
         ctx.lineWidth = 4;
         ctx.strokeStyle = "rgb(00,00,180)";
@@ -58,15 +58,15 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
 
         //Draw all pins
 
-        
+
         const angle = 360 / maxBeats;
 
 
         notes[song].forEach((row, i) => {
             if (i === 16) return; //dont calculate the title data
             for (let beat = 0; beat < maxBeats; beat++) {
-                
-                if (row[beat] ) {
+
+                if (row[beat]) {
                     //draw pin if note exists
                     drawPin(ctx, beat, i, angle)
                 }
@@ -82,9 +82,9 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
 
     return (
         <div className="record-preview-container">
- <canvas id= "record-preview"  className={`${(mousePos[0] === -1) ? "record-preview-animate" : ""}`} ref={canvas} height={500} width={500} />
- <img src={require("./FPRP.png")} alt="recordPlayer" className='record-player'/>
- </div>
+            <canvas id="record-preview" className={`${(mousePos[0] === -1) ? "record-preview-animate" : ""}`} ref={canvas} height={500} width={500} />
+            <img src={require("./FPRP.png")} alt="recordPlayer" className='record-player' />
+        </div>
     );
 };
 

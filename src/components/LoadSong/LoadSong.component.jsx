@@ -1,6 +1,6 @@
 import { useRef } from "react"
 
-export const LoadFile = ({ setNotes, song }) => {
+export const LoadFile = ({ setNotes, song, setMaxBeats }) => {
     const inputFile = useRef(null);
 
     const loadFile = () => {
@@ -19,31 +19,35 @@ export const LoadFile = ({ setNotes, song }) => {
 
     const formatFile = (text) => {
        
-   
-        text.replace(/\\r/,'' )
-        console.log(text)
         let newNotes = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
         let row = 0;
         let skip =false;
         let title = '';
+
         for (let i = 0; i < text.length ; i++) {
             const char = text.charAt(i);
             if (skip) {
+             
                 skip = false;
             };
 
             if (row === 16) {
-                title += char
+                if (char.match(/\\/)) {
+                    skip = true;
+                } else {
+                    title += char;
+                }
+              
             }
           
          
             if (char.match(/\\/)) {
-                row++;
+                //this if stament is a bug fix. My file type only used \n where fredns used \r\n. This makes sure it doesnt skip 2 rows
+                if (text.charAt(i+1) === 'n' ) row++; 
                 skip = true;
             };
              
-            if (char=== "-" || char=== "+") {
-                console.log(char)
+            if (char === "-" || char === "+") {
                 newNotes[row].push((char === '-') ? 0 : 1);
             }
      
@@ -51,6 +55,7 @@ export const LoadFile = ({ setNotes, song }) => {
         }
         newNotes = newNotes.reverse();
         newNotes.push(title.slice(1, title.length-1));
+        setMaxBeats(newNotes[0].length)
         setNotes(old => {
             old[song]=newNotes;
             return [...old]
