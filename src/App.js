@@ -77,10 +77,10 @@ function App() {
       <Parameters setMaxBeats={setMaxBeats} maxBeats={maxBeats} />
       <Staff notes={notes} song={song} setNotes={setNotes} mousePos={mousePos} setMousePos={setMousePos} />
       <PlaySongButton notes={notes} song={song} maxBeats={maxBeats} mousePos={mousePos} setMousePos={setMousePos} />
-      <RecordPreview notes={notes} maxBeats={maxBeats} song={song} mousePos={mousePos} />
       <button onMouseDown={() => downloadScad(scadGen(notes))} >Download SCAD File</button>
       <button onMouseDown={() => downloadSave(notes[song])} >Save This Song</button>
       <LoadFile setNotes={setNotes} song={song}/>
+      <RecordPreview notes={notes} maxBeats={maxBeats} song={song} mousePos={mousePos} />
   
     </div>
   );

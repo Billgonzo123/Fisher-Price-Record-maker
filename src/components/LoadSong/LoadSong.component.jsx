@@ -18,6 +18,10 @@ export const LoadFile = ({ setNotes, song }) => {
     }
 
     const formatFile = (text) => {
+       
+   
+        text.replace(/\\r/,'' )
+        console.log(text)
         let newNotes = [[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]];
         let row = 0;
         let skip =false;
@@ -39,6 +43,7 @@ export const LoadFile = ({ setNotes, song }) => {
             };
              
             if (char=== "-" || char=== "+") {
+                console.log(char)
                 newNotes[row].push((char === '-') ? 0 : 1);
             }
      

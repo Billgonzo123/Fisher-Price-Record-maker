@@ -13,3 +13,24 @@ to{
     transform: rotate(360deg);
 }
 }
+#record-preview{
+    position: relative;
+    left: -170px;
+    top: 0px;
+
+}
+.record-player{
+    position: relative;
+    left: 0px;
+    top: -913px;
+    width: 980px;
+}
+.record-preview-container{
+    position: absolute;
+    top: 1200px;
+    z-index: 1;
+    width: 100%;
+    min-width: 1000px;
+    align-items: center;
+
+}

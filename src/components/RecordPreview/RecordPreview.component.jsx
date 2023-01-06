@@ -7,7 +7,6 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
 
     function drawPin(ctx, beat, i, angle) {
         //rotate from the center
-        console.log(beat, i)
         const deg = (angle * beat)-90
         ctx.translate(250, 250)
         ctx.rotate(-deg * Math.PI / 180);
@@ -65,11 +64,9 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
 
         notes[song].forEach((row, i) => {
             if (i === 16) return; //dont calculate the title data
-            console.log('Row...', i)
             for (let beat = 0; beat < maxBeats; beat++) {
                 
                 if (row[beat] ) {
-                    console.log('Note...')
                     //draw pin if note exists
                     drawPin(ctx, beat, i, angle)
                 }
@@ -84,8 +81,10 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
 
 
     return (
- <canvas className={(mousePos[0] === -1) ? "record-preview-animate" : ""} ref={canvas} height={500} width={500} />
-   
+        <div className="record-preview-container">
+ <canvas id= "record-preview"  className={`${(mousePos[0] === -1) ? "record-preview-animate" : ""}`} ref={canvas} height={500} width={500} />
+ <img src={require("./FPRP.png")} alt="recordPlayer" className='record-player'/>
+ </div>
     );
 };
 
