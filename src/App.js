@@ -11,6 +11,7 @@ import { RecordPreview } from './components/RecordPreview/RecordPreview.componen
 import { SongTitle } from './components/SongTitle/SongTitle.component';
 
 import { downloadSave, downloadScad } from './util/saving';
+import { LoadFile } from './components/LoadSong/LoadSong.component';
 
 
 function App() {
@@ -79,6 +80,7 @@ function App() {
       <RecordPreview notes={notes} maxBeats={maxBeats} song={song} mousePos={mousePos} />
       <button onMouseDown={() => downloadScad(scadGen(notes))} >Download SCAD File</button>
       <button onMouseDown={() => downloadSave(notes[song])} >Save This Song</button>
+      <LoadFile setNotes={setNotes} song={song}/>
   
     </div>
   );
