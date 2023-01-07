@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import './recordPreview.css';
 
 export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
     const canvas = React.useRef();
+
+    const [scaleSize, setScaleSize] = useState(window.innerWidth)
 
 
     function drawPin(ctx, beat, i, angle) {
@@ -29,9 +31,14 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
     };
 
     ////////////////////////////////
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            const width = window.innerWidth;
+           setScaleSize(width);
+        });
+    }, [])
 
-
-    React.useEffect(() => {
+    useEffect(() => {
         const ctx = canvas.current.getContext("2d");
 
         //draw here
@@ -80,10 +87,16 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
 
 
 
+
+   
+
     return (
-        <div className="record-preview-container">
+        <div className="record-preview-container" >
+           <div className="record-preview-inner" style={{transform: `scale(${(scaleSize>1000) ? 1 : scaleSize/1000})`}}>
             <canvas id="record-preview" className={`${(mousePos[0] === -1) ? "record-preview-animate" : ""}`} ref={canvas} height={500} width={500} />
             <img src={require("./FPRP.png")} alt="recordPlayer" className='record-player' />
+            </div>
+            
         </div>
     );
 };

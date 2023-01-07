@@ -16,22 +16,47 @@ to{
 }
 #record-preview{
     position: relative;
-    left: 340px;
-    top: -54px;
+    grid-column: 1;
+    grid-row: 1;
+    top: 410px;
+    left: 68px;
     transform: rotate(45deg);
 }
 .record-player{
     position: relative;
-    left: -230px;
-    top: 0px;
+    grid-column: 1;
+    grid-row: 1;
     width: 980px;
 }
+
+
 .record-preview-container{
+    overflow: hidden;
+    pointer-events: none;
+ display: grid;
     position: absolute;
-    top: 800px;
+    top: 700px;
+    left: 0px;
     z-index: 1;
     width: 100%;
-    min-width: 1000px;
-    align-items: center;
+    height: 1200px;
+   
+
+    
 
 }
+
+.record-preview-inner{
+    pointer-events: none;
+    display: grid;
+    position: relative;
+    left: 0px;
+    top: 100px;
+    margin: 0 auto;
+    width:1000px;
+
+    transform-origin: left top;
+
+  
+}
+
