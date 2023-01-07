@@ -12,7 +12,7 @@ filter.connect(reverb);
 
 export const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) => {
     const noteName = [
-        'D6', 'C6', 'B5', 'A5', 'G5', 'F5', 'E5', 'D5', 'C5', 'B4', 'A4', 'G4', '', 'E4', 'D4', 'C4', '', '', 'G3'
+        'D7', 'C7', 'B6', 'A6', 'G6', 'F6', 'E6', 'D6', 'C6', 'B5', 'A5', 'G5', '', 'E5', 'D5', 'C5', '', '', 'G4'
     ];
 
     const playNote = (note, beat) => {
