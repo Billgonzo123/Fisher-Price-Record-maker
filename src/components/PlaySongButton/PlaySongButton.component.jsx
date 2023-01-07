@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import * as Tone from 'tone'
 
 
@@ -9,24 +10,34 @@ synth.connect(limiter);
 limiter.connect(filter).toDestination();;
 filter.connect(reverb)
 
+synth.set({
+    envelope: {
+        attack: 0.003,
+        release: 4
+    }
+});
+
 let intervals = [];
 
 
-export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos}) => {
+export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos }) => {
 
+    const [repeat, setRepeat] = useState(false);
     const noteName = [
-        'D6', 'C6', 'B5', 'A5', 'G5', 'F5', 'E5', 'D5', 'C5', 'B4', 'A4', 'G4', 'E4', 'D4', 'C4', 'G3'
+        'D7', 'C7', 'B6', 'A6', 'G6', 'F6', 'E6', 'D6', 'C6', 'B5', 'A5', 'G5', 'E5', 'D5', 'C5', 'G4'
     ];
 
     const playSong = () => {
         intervals.forEach(clearInterval);
         intervals = [];
-        setMousePos([0,0])
+        setMousePos([0, 0])
         if (mousePos[0] === -1) return;
+     
 
         const beatLength = 25000 / maxBeats;
+
         for (let i = 0; i <= maxBeats; i++) {
-           intervals.push(setTimeout(() => {
+            intervals.push(setTimeout(() => {
                 (i !== maxBeats) ? setMousePos([-1, i]) : setMousePos([0, 0]);
                 if (notes[song][0][i]) synth.triggerAttackRelease(noteName[0], "8n");
                 if (notes[song][1][i]) synth.triggerAttackRelease(noteName[1], "8n");
@@ -45,13 +56,25 @@ export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos}) 
                 if (notes[song][14][i]) synth.triggerAttackRelease(noteName[14], "8n");
                 if (notes[song][15][i]) synth.triggerAttackRelease(noteName[15], "8n");
 
+                if (repeat && i === maxBeats) {
+                    playSong()
+                }
             }, beatLength * i));
-            
+       
         }
 
     };
 
+    const handleCheck = (element) => {
+        const newVal = element.target.checked;
+        setRepeat(newVal);
+    };
+
     return (
-        <button type="button" onClick={playSong}>Play/Stop</button>
+        <>
+            <label > Repeat </label>
+            <input type='checkbox' name='repeatBox' onChange={handleCheck} checked={repeat}></input>
+            <button type="button" onClick={playSong}>Play/Stop</button>
+        </>
     )
 }
