@@ -94,7 +94,7 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
         <div className="record-preview-container" >
            <div className="record-preview-inner" style={{transform: `scale(${(scaleSize>1000) ? 1 : scaleSize/1000})`}}>
             <canvas id="record-preview" className={`${(mousePos[0] === -1) ? "record-preview-animate" : ""}`} ref={canvas} height={500} width={500} />
-            <img src={require("./FPRP.png")} alt="recordPlayer" className='record-player' />
+            <img src={require(`${(mousePos[0] === -1) ? './FPRP.png' : './FPRP-Open.png'}`)} alt="recordPlayer" className='record-player' />
             </div>
             
         </div>
