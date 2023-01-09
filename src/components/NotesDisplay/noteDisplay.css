@@ -1,14 +1,14 @@
-.noteDisplay{
-    text-align: right;
-    margin: -2px;
-   height: 10px;
-   font-weight: bold;
+.noteDisplay {
+  text-align: right;
+  margin: -2px;
+  height: 10px;
+  font-weight: bold;
 }
 
-.evenNote{
-    color: #FFC145;
+.evenNote {
+  color: #ffc145;
 }
 
-.oddNote{
-    color:#FFFFFB;
+.oddNote {
+  color: #fffffb;
 }
