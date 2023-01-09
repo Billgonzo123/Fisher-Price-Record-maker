@@ -1,5 +1,5 @@
 .staff-component {
-  border: 5px solid #FFC145;
+  border: 10px solid #FFC145;
   border-radius: 20px;
   box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.315);
   overflow: auto;

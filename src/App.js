@@ -64,7 +64,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Fisher Price Record Maker</h1>
+    
+        <h1 className="title">Fisher Price Record Maker</h1>
       <SongTitle
         notes={notes}
         setNotes={setNotes}
