@@ -78,7 +78,7 @@ function App() {
         setNotes={setNotes}
         mousePos={mousePos}
         setMousePos={setMousePos}
-      />
+      /> 
       <PlaySongButton
         notes={notes}
         song={song}

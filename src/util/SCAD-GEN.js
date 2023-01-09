@@ -1,4 +1,4 @@
-import { noteKey } from "./noteKey";
+import { notePinKey } from "./noteKey";
 
 export const scadGen = (notes) => {
 
@@ -15,7 +15,7 @@ export const scadGen = (notes) => {
 
 				if (pins[i][j]) {
 					output += `
-				pin(${noteKey[i]},${space * j},${side});`;
+				pin(${notePinKey[i]},${space * j},${side});`;
 				};
 			}
 
