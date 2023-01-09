@@ -1,6 +1,9 @@
 .staff-component {
+  border: 5px solid #FFC145;
+  border-radius: 20px;
+  box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.315);
   overflow: auto;
-  background-color: #8282be;
+  background: linear-gradient(176deg, rgba(130,130,190,1) 0%, rgba(71,71,158,1) 100%);
   display: grid;
   grid-auto-rows: 20px;
   grid-auto-columns: 20px;
@@ -8,6 +11,9 @@
   grid-row-gap: 3px;
   padding: 20px;
   margin: 30px;
+
+
+
 }
 
 .staff-container {
@@ -25,4 +31,13 @@
   width: 28px;
   top: 0px;
   left: 0px;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 18px;
+  }
+::-webkit-scrollbar-thumb {
+  border-radius: 2.5px;
+  background: #FFC145;
 }
