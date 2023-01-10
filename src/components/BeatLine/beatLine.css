@@ -16,19 +16,20 @@ box-shadow: inset -2px -2px 3px   rgba(139, 139, 139, 0.555);
 }
 
 .staff-line-note{
-    background-color: #525686;
+     background-color: #4987ab; 
     border: none;
     box-shadow: inset 2px 2px 2px   rgba(0, 0, 0, 0.555);
+  
     
     
 }
 
 .staff-line-note:hover{
-    background-color: #3a3f82;
+    background-color: #3b6c89;
 }
 
 .highlighted{
-    border: 3px solid #c54444;
+    border: 3px solid #d86c1e;
 
 }
 

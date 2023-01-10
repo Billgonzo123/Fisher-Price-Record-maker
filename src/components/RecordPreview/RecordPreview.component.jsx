@@ -20,7 +20,7 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
         if (i >= 9) space = (150 / 11 / 2) * i + 42; //if its a pin on the inner 9 pins it shuld be two pins per line
 
         // draw the bar
-        ctx.fillStyle = "rgb(10,10,180)";
+        ctx.fillStyle = "rgb(50,50,180)";
         ctx.fillRect(
             250, // centered on x
             space, // from the inner radius
@@ -61,7 +61,7 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
         }
 
         ctx.lineWidth = 4;
-        ctx.strokeStyle = "rgb(00,00,180)";
+        ctx.strokeStyle = "rgb(50,50,180)";
 
         ctx.stroke();
 
