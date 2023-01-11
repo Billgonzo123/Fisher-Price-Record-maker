@@ -1,0 +1,25 @@
+.shift-button{
+    width: 40px;
+    height: 30px;
+    background-color: #fffffb;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.shift-button:hover{
+    background-color: #4987ab;
+}
+
+.shift-left{
+    position: relative;
+    left: -30px;
+    
+}
+
+.shift-right{
+    position: relative;
+    left: 10px;
+    
+}
