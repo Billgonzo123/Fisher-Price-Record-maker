@@ -3,8 +3,8 @@
 <image src='https://user-images.githubusercontent.com/90714216/211920877-1a1ac662-6124-4c8f-9a1d-8d285b54946c.png' alt="screenshot"/>
 </p>
 
+  ## [Direct Link](https://chriskurz098.github.io/Fisher-Price-Record-maker/)
 
- ### [Link](https://chriskurz098.github.io/Fisher-Price-Record-maker/)
  
 ## Description
 Are you a person who owns and loves your retro Fisher Price Record Player Music Box? If so, this is the app for you. This was an idea I had that fortunately someone else came up with and executed.  
