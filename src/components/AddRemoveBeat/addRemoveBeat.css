@@ -5,10 +5,17 @@
     border: 5px solid #FFC145;
     color: #FFC145;;
     border-radius: 20px;
-    width: 30px;
+    width: 50px;
     margin-left: 5px;
-    box-shadow: 12px 12px 5px rgba(0, 0, 0, 0.322);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.322);
 }
 .add-remove-button:hover{
     background-color: rgb(111, 111, 201) ;
+}
+
+.add-remove-container{
+
+    margin: 0px;
+    width:90px;
+    padding: 0px;
 }
