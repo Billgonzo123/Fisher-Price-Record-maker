@@ -1,7 +1,10 @@
 *{
   text-align: center;
+ 
 }
-
+body{
+  background-color: #FFFFFB;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -27,15 +30,28 @@
 }
 
 .header-container{
-  font-family: 'FisherPrice';
+
   font-size: clamp(8px, 2vw, 25px);
 
 
 }
 .title{
+  font-family: 'FisherPrice';
+  color: #FFC145;
+  -webkit-text-stroke: 1px #282c34;
   font-size: clamp(8px, 7vw, 60px);
 }
 
 button{
   font-size: clamp(8px, 2vw, 20px);
+  background-color: #FFFFFB;
+}
+.button-container{
+  font-family: 'FisherPrice';
+}
+.button-container>button{
+  font-family: 'FisherPrice';
+  margin: 5px;
+  border-radius: 15px;
+  border-color: #FFC145;
 }

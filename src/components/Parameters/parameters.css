@@ -3,4 +3,20 @@
     width: clamp(20px, 9vw, 100px);;
     margin: 5px;
     text-align: right;
+    border-color: #FFC145;
+
 }
+
+.beat-input-form{
+    font-family: 'FisherPrice';
+    margin: 5px;
+    border-radius: 15px;
+    border-color: #FFC145;
+}
+.beat-input-form>button{
+    font-family: 'FisherPrice';
+    margin: 5px;
+    border-radius: 15px;
+    border-color: #FFC145;
+}
+

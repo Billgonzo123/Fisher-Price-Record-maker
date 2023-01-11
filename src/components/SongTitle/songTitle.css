@@ -1,5 +1,13 @@
 .song-title-container{
     margin: 20px;
+    
+}
+
+.song-title-container>button{
+    font-family: 'FisherPrice';
+    margin: 5px;
+    border-radius: 15px;
+    border-color: #FFC145;
 }
 
 .song-title-container input{
@@ -9,4 +17,7 @@
     font-size: 4vw;
     font-style: italic;
     margin: 5px;
+
+    font-family: 'FisherPrice';
+
 }

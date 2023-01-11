@@ -79,7 +79,7 @@ function App() {
     return (
         <div className='App'>
             <div className='header-container'>
-                <h1 className='title'>Fisher Price Record Maker</h1>
+                <h1 className='title'>Fisher-Price Record Maker</h1>
                 <SongTitle notes={notes} setNotes={setNotes} song={song} setSong={setSong} />
                 <Parameters setMaxBeats={setMaxBeats} maxBeats={maxBeats} />
             </div>
