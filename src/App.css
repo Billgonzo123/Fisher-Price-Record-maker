@@ -27,6 +27,7 @@
 }
 
 .header-container{
+  font-family: 'FisherPrice';
   font-size: clamp(8px, 2vw, 25px);
 
 

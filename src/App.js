@@ -12,6 +12,8 @@ import { SongTitle } from "./components/SongTitle/SongTitle.component";
 import { downloadSave, downloadScad } from "./util/saving";
 import { LoadFile } from "./components/LoadSong/LoadSong.component";
 
+import './fonts/fonts.css'
+
 function App() {
     const [notes, setNotes] = useState(musicFormatExample);
     const [song, setSong] = useState(0);
