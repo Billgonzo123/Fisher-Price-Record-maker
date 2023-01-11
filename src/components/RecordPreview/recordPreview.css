@@ -33,7 +33,7 @@
   pointer-events: none;
   display: grid;
   position: absolute;
-  top: 700px;
+  top: calc(800px+8vw);
   left: 0px;
   z-index: 1;
   width: 100%;

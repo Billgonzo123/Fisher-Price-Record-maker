@@ -68,7 +68,7 @@ function App() {
             const save = window.confirm("Would you like to save first?");
             if (save) downloadSave(notes[song]);
             setNotes((old) => {
-              old[song] = musicFormatExample[song];
+                old[song] = musicFormatExample[song];
                 return [...old];
             });
         } else {
@@ -78,9 +78,11 @@ function App() {
 
     return (
         <div className='App'>
-            <h1 className='title'>Fisher Price Record Maker</h1>
-            <SongTitle notes={notes} setNotes={setNotes} song={song} setSong={setSong} />
-            <Parameters setMaxBeats={setMaxBeats} maxBeats={maxBeats} />
+            <div className='header-container'>
+                <h1 className='title'>Fisher Price Record Maker</h1>
+                <SongTitle notes={notes} setNotes={setNotes} song={song} setSong={setSong} />
+                <Parameters setMaxBeats={setMaxBeats} maxBeats={maxBeats} />
+            </div>
             <Staff
                 notes={notes}
                 song={song}
@@ -89,18 +91,20 @@ function App() {
                 setMousePos={setMousePos}
                 setMaxBeats={setMaxBeats}
             />
-            <PlaySongButton
-                notes={notes}
-                song={song}
-                maxBeats={maxBeats}
-                mousePos={mousePos}
-                setMousePos={setMousePos}
-            />
-            <button onMouseDown={() => downloadScad(scadGen(notes))}>Download SCAD File</button>
-            <button onMouseDown={() => downloadSave(notes[song])}>Save This Song</button>
-            <button onMouseDown={clearSong}>Clear This Song</button>
-            <LoadFile setNotes={setNotes} song={song} setMaxBeats={setMaxBeats} />
-            <RecordPreview notes={notes} maxBeats={maxBeats} song={song} mousePos={mousePos} />
+            <div className='button-container'>
+                <PlaySongButton
+                    notes={notes}
+                    song={song}
+                    maxBeats={maxBeats}
+                    mousePos={mousePos}
+                    setMousePos={setMousePos}
+                />
+                <button onMouseDown={() => downloadScad(scadGen(notes))}>Download SCAD File</button>
+                <button onMouseDown={() => downloadSave(notes[song])}>Save This Song</button>
+                <button onMouseDown={clearSong}>Clear This Song</button>
+                <LoadFile setNotes={setNotes} song={song} setMaxBeats={setMaxBeats} />
+                <RecordPreview notes={notes} maxBeats={maxBeats} song={song} mousePos={mousePos} />
+            </div>
         </div>
     );
 }

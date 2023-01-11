@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-
+import './parameters.css'
 export const Parameters = ({ setMaxBeats, maxBeats }) => {
     const handleMaxBeatChange = (event) => {
         event.preventDefault();
@@ -9,7 +9,7 @@ export const Parameters = ({ setMaxBeats, maxBeats }) => {
     return (
         <form key={maxBeats} onSubmit={handleMaxBeatChange}>
             <label>Total Number of Beats</label>
-            <input type={"number"} max='180' defaultValue={maxBeats}></input>
+            <input className="beat-input" type={"number"} max='180' defaultValue={maxBeats}></input>
             <button type='submit'>Update</button>
         </form>
     );

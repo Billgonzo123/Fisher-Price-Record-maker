@@ -25,3 +25,15 @@
     transform: rotate(360deg);
   }
 }
+
+.header-container{
+  font-size: 2vw;
+
+}
+.title{
+  font-size: 7vw;
+}
+
+button{
+  font-size: 2vw;
+}
