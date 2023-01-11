@@ -1,5 +1,6 @@
 import { AddRemoveBeat } from "../AddRemoveBeat/AddRemoveBeat.component";
 import { BeatLine } from "../BeatLine/BeatLine.component";
+import { DeleteCol } from "../DeleteCol/DeleteCol.component";
 import { NotesDisplay } from "../NotesDisplay/NotesDisplay.component";
 import { ShiftCol } from "../ShiftCol/ShiftCol.component";
 import "./staff.css";
@@ -18,7 +19,7 @@ export const Staff = ({ notes, song, setNotes, mousePos, setMousePos, setMaxBeat
                     return note.map((beat, j) => {
                         return (
                             <>
-                           {(i === 0) ? <button type='button' style={{gridColum: `${j}`, gridRow: '-2'}}></button>: ''}
+                           {(i === 0) ? <DeleteCol key={`del${j}`} setMousePos = {setMousePos} column = {j+1} song = {song} setNotes = {setNotes}/>: ''}
                             <BeatLine
                                 key={`beat-${i}-${j}-${beat}`}
                                 beat={beat}
@@ -28,7 +29,7 @@ export const Staff = ({ notes, song, setNotes, mousePos, setMousePos, setMaxBeat
                                 mousePos={mousePos}
                                 setMousePos={setMousePos}
                             />
-                            {  (mousePos[1] === j) ? <ShiftCol  setMousePos = {setMousePos} setNotes={setNotes} song = {song} mousePos={mousePos}/> : '' }
+                            {  (mousePos[1] === j) ? <ShiftCol key={`shift${j}`} setMousePos = {setMousePos} setNotes={setNotes} song = {song} mousePos={mousePos}/> : '' }
                             </>
                             
                         );

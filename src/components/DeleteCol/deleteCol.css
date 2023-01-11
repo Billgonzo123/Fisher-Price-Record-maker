@@ -1,0 +1,10 @@
+.clear-button{
+    text-align: center;
+    text-indent: -1px;
+    font-weight: bold;
+    background-color: rgb(223, 223, 223);
+}
+
+.clear-button:hover{
+    background-color: red;
+}
