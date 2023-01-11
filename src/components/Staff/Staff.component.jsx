@@ -19,7 +19,7 @@ export const Staff = ({ notes, song, setNotes, mousePos, setMousePos, setMaxBeat
                     return note.map((beat, j) => {
                         return (
                             <>
-                           {(i === 0) ? <DeleteCol key={`del${j}`} setMousePos = {setMousePos} column = {j+1} song = {song} setNotes = {setNotes}/>: ''}
+                           {(i === 0) ? <DeleteCol key={`del-${j}`} setMousePos = {setMousePos} column = {j+1} song = {song} setNotes = {setNotes}/>: ''}
                             <BeatLine
                                 key={`beat-${i}-${j}-${beat}`}
                                 beat={beat}
@@ -29,7 +29,7 @@ export const Staff = ({ notes, song, setNotes, mousePos, setMousePos, setMaxBeat
                                 mousePos={mousePos}
                                 setMousePos={setMousePos}
                             />
-                            {  (mousePos[1] === j) ? <ShiftCol key={`shift${j}`} setMousePos = {setMousePos} setNotes={setNotes} song = {song} mousePos={mousePos}/> : '' }
+                            {  (mousePos[1] === j && i === 0) ? <ShiftCol key={`shift-${j}-${i}`} setMousePos = {setMousePos} setNotes={setNotes} song = {song} mousePos={mousePos}/> : '' }
                             </>
                             
                         );

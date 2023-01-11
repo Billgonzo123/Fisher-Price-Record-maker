@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { scadGen } from "./util/SCAD-GEN";
 import { musicFormatExample } from "./util/noteKey";
 import { Staff } from "./components/Staff/Staff.component";
 import { Parameters } from "./components/Parameters/Parameters";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { PlaySongButton } from "./components/PlaySongButton/PlaySongButton.component";
 import { RecordPreview } from "./components/RecordPreview/RecordPreview.component";
 import { SongTitle } from "./components/SongTitle/SongTitle.component";
@@ -20,7 +19,6 @@ function App() {
     const [mousePos, setMousePos] = useState([0, 0]);
 
     useEffect(() => {
-        console.log("ReRender matrix: ", maxBeats);
         setNotes((old) => {
             const title = old[song].pop();
             const length = old[song][0].length;
