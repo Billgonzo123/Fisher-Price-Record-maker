@@ -5,7 +5,9 @@ export const DeleteCol = ({setMousePos, column, setNotes, song}) => {
     const clearCol = () => {
 
         setNotes(old => {
-            const newCol = old[song].map((row) => {
+            const newCol = old[song].map((row,i) => {
+              
+                if (i >=16) return row;
                 return row.map((col, i) => {
                     if (i !== column-1) { return col } else {
                         return 0;
