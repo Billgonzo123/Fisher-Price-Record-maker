@@ -1,0 +1,14 @@
+.add-remove-button{ 
+    height: 200px;
+    text-align: center;
+    background-color: rgba(71,71,158,1) ;
+    border: 5px solid #FFC145;
+    color: #FFC145;;
+    border-radius: 20px;
+    width: 30px;
+    margin-left: 5px;
+    box-shadow: 12px 12px 5px rgba(0, 0, 0, 0.322);
+}
+.add-remove-button:hover{
+    background-color: rgb(111, 111, 201) ;
+}

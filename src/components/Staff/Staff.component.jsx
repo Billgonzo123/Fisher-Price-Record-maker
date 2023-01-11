@@ -1,8 +1,9 @@
+import { AddRemoveBeat } from "../AddRemoveBeat/AddRemoveBeat.component";
 import { BeatLine } from "../BeatLine/BeatLine.component";
 import { NotesDisplay } from "../NotesDisplay/NotesDisplay.component";
 import "./staff.css";
 
-export const Staff = ({ notes, song, setNotes, mousePos, setMousePos }) => {
+export const Staff = ({ notes, song, setNotes, mousePos, setMousePos, setMaxBeats }) => {
     return (
         <div className='staff-container'>
             <div className={"staff-component"}>
@@ -23,10 +24,12 @@ export const Staff = ({ notes, song, setNotes, mousePos, setMousePos }) => {
                                 mousePos={mousePos}
                                 setMousePos={setMousePos}
                             />
+                            
                         );
                     });
                 })}
             </div>
+            <AddRemoveBeat setMaxBeats={setMaxBeats}/>
         </div>
     );
 };

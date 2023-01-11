@@ -87,6 +87,7 @@ function App() {
                 setNotes={setNotes}
                 mousePos={mousePos}
                 setMousePos={setMousePos}
+                setMaxBeats={setMaxBeats}
             />
             <PlaySongButton
                 notes={notes}
