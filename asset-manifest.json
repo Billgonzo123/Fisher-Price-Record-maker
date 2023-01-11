@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Fisher-Price-Record-maker/static/css/main.2c504c41.css",
-    "main.js": "/Fisher-Price-Record-maker/static/js/main.89b3b23a.js",
+    "main.css": "/Fisher-Price-Record-maker/static/css/main.fd216a83.css",
+    "main.js": "/Fisher-Price-Record-maker/static/js/main.afa6bf49.js",
     "static/js/787.a9c8ebed.chunk.js": "/Fisher-Price-Record-maker/static/js/787.a9c8ebed.chunk.js",
     "static/media/FPRP.png": "/Fisher-Price-Record-maker/static/media/FPRP.6e337c4caddb3a0aad23.png",
     "static/media/FPRP-Open.png": "/Fisher-Price-Record-maker/static/media/FPRP-Open.a165030b44707408214d.png",
     "static/media/logo.svg": "/Fisher-Price-Record-maker/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/Fisher-Price-Record-maker/index.html",
-    "main.2c504c41.css.map": "/Fisher-Price-Record-maker/static/css/main.2c504c41.css.map",
-    "main.89b3b23a.js.map": "/Fisher-Price-Record-maker/static/js/main.89b3b23a.js.map",
+    "main.fd216a83.css.map": "/Fisher-Price-Record-maker/static/css/main.fd216a83.css.map",
+    "main.afa6bf49.js.map": "/Fisher-Price-Record-maker/static/js/main.afa6bf49.js.map",
     "787.a9c8ebed.chunk.js.map": "/Fisher-Price-Record-maker/static/js/787.a9c8ebed.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c504c41.css",
-    "static/js/main.89b3b23a.js"
+    "static/css/main.fd216a83.css",
+    "static/js/main.afa6bf49.js"
   ]
 }
