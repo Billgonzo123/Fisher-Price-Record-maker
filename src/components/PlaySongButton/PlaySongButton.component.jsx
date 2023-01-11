@@ -2,6 +2,8 @@ import { useState } from "react";
 import { noteName } from "../../util/noteKey";
 import * as Tone from "tone";
 
+import './playSongButton.css';
+
 const synth = new Tone.PolySynth();
 const reverb = new Tone.Reverb(8).toDestination();
 const limiter = new Tone.Volume(-13);
@@ -82,12 +84,14 @@ export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos })
 
     return (
         <>
-            <label> Repeat </label>
+            <label htmlFor="repeatBox" className="repeat-label"> Repeat </label>
             <input
+                className="repeate-checkbox"
                 type='checkbox'
                 name='repeatBox'
                 onChange={handleCheck}
                 checked={repeat}></input>
+
             <button type='button' onClick={playSong}>
                 Play/Stop
             </button>

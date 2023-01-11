@@ -1,6 +1,6 @@
 .beat-input{
-    font-size: 2vw;
-    width: 9vw;
+    font-size: clamp(8px, 2vw, 25px);;
+    width: clamp(20px, 9vw, 100px);;
     margin: 5px;
     text-align: right;
 }

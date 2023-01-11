@@ -1,0 +1,10 @@
+.repeat-label {
+    font-size: clamp(8px, 2vw, 25px);
+}
+
+.repeate-checkbox {
+    vertical-align: bottom;
+    margin: 0px 1vw 3px 0px;
+    width: clamp(8px, 2vw, 30px);
+    height: clamp(8px, 2vw, 30px);
+}

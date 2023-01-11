@@ -27,13 +27,14 @@
 }
 
 .header-container{
-  font-size: 2vw;
+  font-size: clamp(8px, 2vw, 25px);
+
 
 }
 .title{
-  font-size: 7vw;
+  font-size: clamp(8px, 7vw, 60px);
 }
 
 button{
-  font-size: 2vw;
+  font-size: clamp(8px, 2vw, 20px);
 }
