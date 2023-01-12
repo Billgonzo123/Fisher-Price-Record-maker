@@ -21,6 +21,7 @@ function App() {
     const [mousePos, setMousePos] = useState([0, 0]);
 
     useEffect(() => {
+        if (maxBeats >180) setMaxBeats(180);
         setNotes((old) => {
             const title = old[song].pop();
             const length = old[song][0].length;
@@ -48,6 +49,7 @@ function App() {
 
     //load notes from local storage if they are there
     useEffect(() => {
+       
         const savedNotes = JSON.parse(localStorage.getItem("savedNotes"));
 
         if (localStorage.getItem("savedNotes")) {
@@ -69,6 +71,7 @@ function App() {
             if (save) downloadSave(notes[song]);
             setNotes((old) => {
                 old[song] = musicFormatExample[song];
+                setMaxBeats(old[song][0].length)
                 return [...old];
             });
         } else {
