@@ -159,11 +159,11 @@ module pin(inner, outer, angle, onSecondSide)
 	rotate(a=angle) {
 		if (onSecondSide > 0) {
 			translate(v=[inner, -0.5, - overlap]) {
-				# cube (size=[outer-inner, 1 ,hGroove + overlap], center=false);
+				# cube (size=[outer-inner, .8 ,hGroove + overlap], center=false);
 			}
 		} else {
 			translate(v=[inner, -0.5, hStock - hGroove - overlap]) {
-				# cube (size=[outer-inner, 1 ,hGroove + overlap], center=false);
+				# cube (size=[outer-inner, .8 ,hGroove + overlap], center=false);
 			}
 		}
 	}
