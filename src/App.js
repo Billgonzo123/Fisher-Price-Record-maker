@@ -21,7 +21,7 @@ function App() {
     const [mousePos, setMousePos] = useState([0, 0]);
 
     useEffect(() => {
-        if (maxBeats >140) setMaxBeats(140);
+        
         setNotes((old) => {
             const title = old[song].pop();
             const length = old[song][0].length;

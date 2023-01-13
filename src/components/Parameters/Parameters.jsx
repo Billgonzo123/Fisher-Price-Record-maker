@@ -9,7 +9,7 @@ export const Parameters = ({ setMaxBeats, maxBeats }) => {
     return (
         <form key={maxBeats} className='beat-input-form' onSubmit={handleMaxBeatChange}>
             <label>Total Number of Beats</label>
-            <input className="beat-input" type={"number"} max='140' defaultValue={maxBeats}></input>
+            <input className="beat-input" type={"number"} max='360' defaultValue={maxBeats}></input>
             <button type='submit'>Update</button>
         </form>
     );
