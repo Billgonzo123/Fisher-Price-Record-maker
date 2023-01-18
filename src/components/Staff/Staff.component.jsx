@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { AddRemoveBeat } from "../AddRemoveBeat/AddRemoveBeat.component";
 import { BeatLine } from "../BeatLine/BeatLine.component";
 import { DeleteCol } from "../DeleteCol/DeleteCol.component";
@@ -18,8 +19,8 @@ export const Staff = ({ notes, song, setNotes, mousePos, setMousePos, setMaxBeat
                     //render each beat
                     return note.map((beat, j) => {
                         return (
-                            <>
-                           {(i === 0) ? <DeleteCol key={`del-${j}`} setMousePos = {setMousePos} column = {j+1} song = {song} setNotes = {setNotes}/>: ''}
+                            <Fragment key={`frag-${i}-${j}`}>
+                           {(i === 0) ? <DeleteCol key={`del-${i}-${j}`} setMousePos = {setMousePos} column = {j+1} song = {song} setNotes = {setNotes}/>: ''}
                             <BeatLine
                                 key={`beat-${i}-${j}-${beat}`}
                                 beat={beat}
@@ -30,7 +31,7 @@ export const Staff = ({ notes, song, setNotes, mousePos, setMousePos, setMaxBeat
                                 setMousePos={setMousePos}
                             />
                             {  (mousePos[1] === j && i === 0) ? <ShiftCol key={`shift-${j}-${i}`} setMousePos = {setMousePos} setNotes={setNotes} song = {song} mousePos={mousePos}/> : '' }
-                            </>
+                            </Fragment>
                             
                         );
                     });
