@@ -15,7 +15,7 @@ import { LoadFile } from "./components/LoadSong/LoadSong.component";
 import './fonts/fonts.css'
 
 function App() {
-    const [notes, setNotes] = useState(musicFormatExample);
+    const [notes, setNotes] = useState(musicFormatExample());
     const [song, setSong] = useState(0);
     const [maxBeats, setMaxBeats] = useState(80);
     const [mousePos, setMousePos] = useState([0, 0]);
@@ -70,14 +70,16 @@ function App() {
             const save = window.confirm("Would you like to save first?");
             if (save) downloadSave(notes[song]);
             setNotes((old) => {
-                old[song] = musicFormatExample[song];
-                setMaxBeats(old[song][0].length)
+                const emptyNotes = musicFormatExample();
+                old[song] = emptyNotes[song];
+                setMaxBeats(emptyNotes[song][0].length)
                 return [...old];
             });
         } else {
             return;
         }
     };
+
 
     return (
         <div className='App'>

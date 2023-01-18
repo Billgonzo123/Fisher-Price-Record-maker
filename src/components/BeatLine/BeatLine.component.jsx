@@ -17,6 +17,7 @@ export const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) =
     };
 
     let { row, col } = pos;
+
     switch (true) {
         case row === 15:
             row += 3;
@@ -39,6 +40,7 @@ export const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) =
                 default:
             }
             const val = old[song][row][col];
+
             old[song][row][col] = val ? 0 : 1;
             return [...old];
         });
@@ -47,6 +49,7 @@ export const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) =
     const updateCurrentRC = () => {
         if (mousePos[0] >= 0) {
             setMousePos((old) => {
+               
                 return [row, col];
             });
         }
@@ -54,6 +57,7 @@ export const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) =
     return (
         <button
             onMouseEnter={updateCurrentRC}
+
             onMouseDown={(e) => {
                 handleNoteToggle();
                 playNote(row, beat);
