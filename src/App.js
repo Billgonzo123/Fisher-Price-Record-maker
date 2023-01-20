@@ -12,16 +12,16 @@ import { SongTitle } from "./components/SongTitle/SongTitle.component";
 import { downloadSave, downloadScad } from "./util/saving";
 import { LoadFile } from "./components/LoadSong/LoadSong.component";
 
-import './fonts/fonts.css'
+import "./fonts/fonts.css";
 
 function App() {
     const [notes, setNotes] = useState(musicFormatExample());
     const [song, setSong] = useState(0);
     const [maxBeats, setMaxBeats] = useState(80);
     const [mousePos, setMousePos] = useState([0, 0]);
+    const [staffViewOn, setStaffViewOn] = useState(true);
 
     useEffect(() => {
-        
         setNotes((old) => {
             const title = old[song].pop();
             const length = old[song][0].length;
@@ -49,7 +49,6 @@ function App() {
 
     //load notes from local storage if they are there
     useEffect(() => {
-       
         const savedNotes = JSON.parse(localStorage.getItem("savedNotes"));
 
         if (localStorage.getItem("savedNotes")) {
@@ -72,14 +71,13 @@ function App() {
             setNotes((old) => {
                 const emptyNotes = musicFormatExample();
                 old[song] = emptyNotes[song];
-                setMaxBeats(emptyNotes[song][0].length)
+                setMaxBeats(emptyNotes[song][0].length);
                 return [...old];
             });
         } else {
             return;
         }
     };
-
 
     return (
         <div className='App'>
@@ -88,14 +86,7 @@ function App() {
                 <SongTitle notes={notes} setNotes={setNotes} song={song} setSong={setSong} />
                 <Parameters setMaxBeats={setMaxBeats} maxBeats={maxBeats} />
             </div>
-            <Staff
-                notes={notes}
-                song={song}
-                setNotes={setNotes}
-                mousePos={mousePos}
-                setMousePos={setMousePos}
-                setMaxBeats={setMaxBeats}
-            />
+
             <div className='button-container'>
                 <PlaySongButton
                     notes={notes}
@@ -108,8 +99,23 @@ function App() {
                 <button onMouseDown={() => downloadSave(notes[song])}>Save This Song</button>
                 <button onMouseDown={clearSong}>Clear This Song</button>
                 <LoadFile setNotes={setNotes} song={song} setMaxBeats={setMaxBeats} />
-                <RecordPreview notes={notes} maxBeats={maxBeats} song={song} mousePos={mousePos} />
+                <button onMouseDown={() => setStaffViewOn((old) => !old)}>
+                    {staffViewOn ? "Switch To Record View" : "Switch To Staff View"}
+                </button>
             </div>
+
+            {staffViewOn ? (
+                <Staff 
+                    notes={notes}
+                    song={song}
+                    setNotes={setNotes}
+                    mousePos={mousePos}
+                    setMousePos={setMousePos}
+                    setMaxBeats={setMaxBeats}
+                />
+            ) : (
+                <RecordPreview notes={notes} maxBeats={maxBeats} song={song} mousePos={mousePos} />
+            )}
         </div>
     );
 }

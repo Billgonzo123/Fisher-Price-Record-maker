@@ -26,7 +26,7 @@ export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos })
 
     const playSong = () => {
         intervals.forEach(clearInterval);
-        intervals = [];
+        
         setMousePos([0, 0]);
         if (mousePos[0] === -1) return;
 
@@ -70,6 +70,7 @@ export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos })
                         synth.triggerAttackRelease(noteName[15], "8n");
 
                     if (repeat && i === maxBeats) {
+                  
                         playSong();
                     }
                 }, beatLength * i)
