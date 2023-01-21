@@ -79,7 +79,8 @@ export const notePinKey = [
 ];
 
 export const musicFormatExample = () => {
-    const emptySong = Array.from({length: 16}, _ => new Array(80).fill(0));
+    const numberOfBeats = 64;
+    const emptySong = Array.from({length: 16}, _ => new Array(numberOfBeats).fill(0));
 
     return [
         [...emptySong, ["Side A"]],
