@@ -2,8 +2,9 @@ import { Fragment } from "react";
 import { AddRemoveBeat } from "../AddRemoveBeat/AddRemoveBeat.component";
 import { BeatLine } from "../BeatLine/BeatLine.component";
 import { DeleteCol } from "../DeleteCol/DeleteCol.component";
+import { InsertCol } from "../InsertCol/InsertCol.component";
 import { NotesDisplay } from "../NotesDisplay/NotesDisplay.component";
-import { ShiftCol } from "../ShiftCol/ShiftCol.component";
+
 import "./staff.css";
 
 export const Staff = ({ style, notes, song, setNotes, mousePos, setMousePos, setMaxBeats }) => {
@@ -30,7 +31,7 @@ export const Staff = ({ style, notes, song, setNotes, mousePos, setMousePos, set
                                 mousePos={mousePos}
                                 setMousePos={setMousePos}
                             />
-                            {  (mousePos[1] === j && i === 0) ? <ShiftCol key={`shift-${j}-${i}`} setMousePos = {setMousePos} setNotes={setNotes} song = {song} mousePos={mousePos}/> : '' }
+                            {  (mousePos[1] === j && i === 0) ? <InsertCol key={`shift-${j}-${i}`} setMousePos = {setMousePos} setNotes={setNotes} song = {song} mousePos={mousePos}/> : '' }
                             </Fragment>
                             
                         );

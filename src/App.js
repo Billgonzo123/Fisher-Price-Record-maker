@@ -49,6 +49,7 @@ function App() {
 
     //load notes from local storage if they are there
     useEffect(() => {
+        
         const savedNotes = JSON.parse(localStorage.getItem("savedNotes"));
 
         if (localStorage.getItem("savedNotes")) {
@@ -60,6 +61,7 @@ function App() {
     }, []);
     //save notes to local storage on change
     useEffect(() => {
+        if (notes[song][0].length !== maxBeats) setMaxBeats(notes[song][0].length);
         localStorage.setItem("savedNotes", JSON.stringify(notes));
     }, [notes]);
 
