@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/Fisher-Price-Record-maker/static/css/main.3877f7b8.css",
-    "main.js": "/Fisher-Price-Record-maker/static/js/main.d6121ed4.js",
+    "main.js": "/Fisher-Price-Record-maker/static/js/main.0ab46124.js",
     "static/js/787.a9c8ebed.chunk.js": "/Fisher-Price-Record-maker/static/js/787.a9c8ebed.chunk.js",
     "static/media/FPRP.png": "/Fisher-Price-Record-maker/static/media/FPRP.6e337c4caddb3a0aad23.png",
     "static/media/FPRP-Open.png": "/Fisher-Price-Record-maker/static/media/FPRP-Open.a165030b44707408214d.png",
     "static/media/fisherprice.ttf": "/Fisher-Price-Record-maker/static/media/fisherprice.7027fe7a3f4187d75d7d.ttf",
     "index.html": "/Fisher-Price-Record-maker/index.html",
     "main.3877f7b8.css.map": "/Fisher-Price-Record-maker/static/css/main.3877f7b8.css.map",
-    "main.d6121ed4.js.map": "/Fisher-Price-Record-maker/static/js/main.d6121ed4.js.map",
+    "main.0ab46124.js.map": "/Fisher-Price-Record-maker/static/js/main.0ab46124.js.map",
     "787.a9c8ebed.chunk.js.map": "/Fisher-Price-Record-maker/static/js/787.a9c8ebed.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3877f7b8.css",
-    "static/js/main.d6121ed4.js"
+    "static/js/main.0ab46124.js"
   ]
 }
