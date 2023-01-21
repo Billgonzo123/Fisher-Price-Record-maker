@@ -104,18 +104,23 @@ function App() {
                 </button>
             </div>
 
-            {staffViewOn ? (
-                <Staff 
-                    notes={notes}
-                    song={song}
-                    setNotes={setNotes}
-                    mousePos={mousePos}
-                    setMousePos={setMousePos}
-                    setMaxBeats={setMaxBeats}
-                />
-            ) : (
-                <RecordPreview notes={notes} maxBeats={maxBeats} song={song} mousePos={mousePos} />
-            )}
+            <Staff
+                style={{ display: staffViewOn ? "" : "none" }}
+                notes={notes}
+                song={song}
+                setNotes={setNotes}
+                mousePos={mousePos}
+                setMousePos={setMousePos}
+                setMaxBeats={setMaxBeats}
+            />
+
+            <RecordPreview
+                style={{ height: staffViewOn ? "0px" : "" }}
+                notes={notes}
+                maxBeats={maxBeats}
+                song={song}
+                mousePos={mousePos}
+            />
         </div>
     );
 }

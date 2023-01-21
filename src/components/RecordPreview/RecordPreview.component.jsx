@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./recordPreview.css";
 
-export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
+export const RecordPreview = ({ notes, maxBeats, song, mousePos, style }) => {
     const canvas = React.useRef();
 
     const [scaleSize, setScaleSize] = useState(window.innerWidth);
@@ -82,7 +82,7 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos }) => {
     }, [notes, song]);
 
     return (
-        <div className='record-preview-container'>
+        <div className='record-preview-container' style={style}>
             <div
                 className='record-preview-inner'
                 style={{

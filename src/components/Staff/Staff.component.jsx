@@ -6,9 +6,9 @@ import { NotesDisplay } from "../NotesDisplay/NotesDisplay.component";
 import { ShiftCol } from "../ShiftCol/ShiftCol.component";
 import "./staff.css";
 
-export const Staff = ({ notes, song, setNotes, mousePos, setMousePos, setMaxBeats }) => {
+export const Staff = ({ style, notes, song, setNotes, mousePos, setMousePos, setMaxBeats }) => {
     return (
-        <div className='staff-container'>
+        <div className='staff-container' style={style}>
             <div className={"staff-component"}>
                 <NotesDisplay />
 
@@ -19,7 +19,7 @@ export const Staff = ({ notes, song, setNotes, mousePos, setMousePos, setMaxBeat
                     //render each beat
                     return note.map((beat, j) => {
                         return (
-                            <Fragment key={`frag-${i}-${j}`}>
+                            <Fragment key={`frag-${i}-${j}`} >
                            {(i === 0) ? <DeleteCol key={`del-${i}-${j}`} setMousePos = {setMousePos} column = {j+1} song = {song} setNotes = {setNotes}/>: ''}
                             <BeatLine
                                 key={`beat-${i}-${j}-${beat}`}
