@@ -1,6 +1,6 @@
 import './songTitle.css';
 
-export const SongTitle = ({ notes, setNotes, song, setSong }) => {
+ const SongTitle = ({ notes, setNotes, song, setSong }) => {
 
 
     const updateTitle = (element) => {
@@ -28,3 +28,5 @@ export const SongTitle = ({ notes, setNotes, song, setSong }) => {
         </div>
     )
 }
+
+export default SongTitle

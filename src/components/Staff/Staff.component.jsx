@@ -1,13 +1,13 @@
 import { Fragment } from "react";
-import { AddRemoveBeat } from "../AddRemoveBeat/AddRemoveBeat.component";
-import { BeatLine } from "../BeatLine/BeatLine.component";
-import { DeleteCol } from "../DeleteCol/DeleteCol.component";
-import { InsertCol } from "../InsertCol/InsertCol.component";
-import { NotesDisplay } from "../NotesDisplay/NotesDisplay.component";
+import AddRemoveBeat from "../AddRemoveBeat/AddRemoveBeat.component";
+import BeatLine from "../BeatLine/BeatLine.component";
+import DeleteCol  from "../DeleteCol/DeleteCol.component";
+import InsertCol from "../InsertCol/InsertCol.component";
+import NotesDisplay from "../NotesDisplay/NotesDisplay.component";
 
 import "./staff.css";
 
-export const Staff = ({ style, notes, song, setNotes, mousePos, setMousePos, setMaxBeats }) => {
+ const Staff = ({ style, notes, song, setNotes, mousePos, setMousePos, setMaxBeats }) => {
     return (
         <div className='staff-container' style={style}>
             <div className={"staff-component"}>
@@ -43,3 +43,5 @@ export const Staff = ({ style, notes, song, setNotes, mousePos, setMousePos, set
         </div>
     );
 };
+
+export default Staff;

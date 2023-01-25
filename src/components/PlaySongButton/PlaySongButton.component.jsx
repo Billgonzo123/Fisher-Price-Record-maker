@@ -21,7 +21,7 @@ synth.set({
 
 let intervals = [];
 
-export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos }) => {
+ const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos }) => {
     const [repeat, setRepeat] = useState(false);
 
     const playSong = () => {
@@ -99,3 +99,5 @@ export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos })
         </>
     );
 };
+
+export default PlaySongButton;

@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import './parameters.css'
-export const Parameters = ({ setMaxBeats, maxBeats }) => {
+ const Parameters = ({ setMaxBeats, maxBeats }) => {
     const handleMaxBeatChange = (event) => {
         event.preventDefault();
         setMaxBeats(event.target.children[1].value);
@@ -14,3 +14,5 @@ export const Parameters = ({ setMaxBeats, maxBeats }) => {
         </form>
     );
 };
+
+export default Parameters;

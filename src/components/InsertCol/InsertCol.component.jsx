@@ -1,6 +1,6 @@
 import './insertCol.css';
 
-export const InsertCol = ({ mousePos, setNotes, song }) => {
+ const InsertCol = ({ mousePos, setNotes, song }) => {
 
 
     const clearCol = () => {
@@ -44,3 +44,5 @@ export const InsertCol = ({ mousePos, setNotes, song }) => {
         </>
     )
 }
+
+export default InsertCol;

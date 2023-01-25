@@ -46,12 +46,3 @@ button{
   font-size: clamp(8px, 2vw, 20px);
   background-color: #FFFFFB;
 }
-.button-container{
-  font-family: 'FisherPrice';
-}
-.button-container>button{
-  font-family: 'FisherPrice';
-  margin: 5px;
-  border-radius: 15px;
-  border-color: #FFC145;
-}

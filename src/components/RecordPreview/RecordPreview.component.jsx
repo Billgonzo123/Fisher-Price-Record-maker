@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./recordPreview.css";
 
-export const RecordPreview = ({ notes, maxBeats, song, mousePos, style }) => {
+const RecordPreview = ({ notes, maxBeats, song, mousePos, style }) => {
     const canvas = React.useRef();
 
     const [scaleSize, setScaleSize] = useState(window.innerWidth);
@@ -107,3 +107,5 @@ export const RecordPreview = ({ notes, maxBeats, song, mousePos, style }) => {
         </div>
     );
 };
+
+export default RecordPreview

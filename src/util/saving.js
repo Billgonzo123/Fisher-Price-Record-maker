@@ -16,9 +16,6 @@ export const downloadSave = (notes) => {
 
     generatedFile += `\n${notes[16]}`
 
-    console.log(generatedFile);
-
-
     let blob = new Blob([generatedFile], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
 

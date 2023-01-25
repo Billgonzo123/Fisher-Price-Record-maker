@@ -10,7 +10,7 @@ synth.connect(limiter);
 limiter.connect(filter).toDestination();
 filter.connect(reverb);
 
-export const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) => {
+ const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) => {
 
     const playNote = (note, beat) => {
         if (!beat) synth.triggerAttackRelease(noteNameSpaces[note], "8n");
@@ -69,3 +69,5 @@ export const BeatLine = ({ beat, pos, setNotes, song, setMousePos, mousePos }) =
         />
     );
 };
+
+export default BeatLine

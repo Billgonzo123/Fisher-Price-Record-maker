@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export const LoadFile = ({ setNotes, song, setMaxBeats }) => {
+ const LoadFile = ({ setNotes, song, setMaxBeats }) => {
     const inputFile = useRef(null);
 
     const loadFile = () => {
@@ -72,3 +72,5 @@ export const LoadFile = ({ setNotes, song, setMaxBeats }) => {
         </>
     );
 };
+
+export default LoadFile;

@@ -1,6 +1,6 @@
 import './deleteCol.css'
 
-export const DeleteCol = ({ setMousePos, column, setNotes, song }) => {
+ const DeleteCol = ({ setMousePos, column, setNotes, song }) => {
 
     const clearCol = () => {
 
@@ -36,3 +36,5 @@ export const DeleteCol = ({ setMousePos, column, setNotes, song }) => {
         <button type='button' className="clear-button" onMouseEnter={handleHover} onClick={clearCol} style={{ gridColumn: `${column}`, gridRow: '-2', fontSize: '8px' }}>X</button>
     )
 }
+
+export default DeleteCol;

@@ -1,7 +1,7 @@
 import { noteNameSpaces } from "../../util/noteKey";
 import "./noteDisplay.css";
 
-export const NotesDisplay = () => {
+ const NotesDisplay = () => {
     return (
         <>
             {noteNameSpaces.map((note, i) => {
@@ -18,3 +18,5 @@ export const NotesDisplay = () => {
         </>
     );
 };
+
+export default NotesDisplay;

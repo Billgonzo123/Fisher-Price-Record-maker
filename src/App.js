@@ -1,55 +1,26 @@
 import "./App.css";
-import { scadGen } from "./util/SCAD-GEN";
-import { musicFormatExample } from "./util/noteKey";
-import { Staff } from "./components/Staff/Staff.component";
-import { Parameters } from "./components/Parameters/Parameters";
-
-import { useEffect, useState } from "react";
-import { PlaySongButton } from "./components/PlaySongButton/PlaySongButton.component";
-import { RecordPreview } from "./components/RecordPreview/RecordPreview.component";
-import { SongTitle } from "./components/SongTitle/SongTitle.component";
-
-import { downloadSave, downloadScad } from "./util/saving";
-import { LoadFile } from "./components/LoadSong/LoadSong.component";
-
 import "./fonts/fonts.css";
 
+import { useEffect, useState } from "react";
+
+import { emptySongs } from "./util/noteKey";
+import { updateNotesToMaxBeatsValue } from "./util/updateNotesToMaxBeatsValue";
+
+import Staff from "./components/Staff/Staff.component";
+import Parameters from "./components/Parameters/Parameters";
+import RecordPreview from "./components/RecordPreview/RecordPreview.component";
+import SongTitle from "./components/SongTitle/SongTitle.component";
+import ButtonContainer from "./components/ButtonContainer/ButtonContainer.componet";
+
 function App() {
-    const [notes, setNotes] = useState(musicFormatExample());
+    const [notes, setNotes] = useState(emptySongs());
     const [song, setSong] = useState(0);
-    const [maxBeats, setMaxBeats] = useState(80);
+    const [maxBeats, setMaxBeats] = useState(64);
     const [mousePos, setMousePos] = useState([0, 0]);
     const [staffViewOn, setStaffViewOn] = useState(true);
 
+    //load notes from local storage if they are there on initial mount
     useEffect(() => {
-        setNotes((old) => {
-            const title = old[song].pop();
-            const length = old[song][0].length;
-            if (maxBeats > length) {
-                const numToAdd = maxBeats - length;
-                for (let i = 0; i < 16; i++) {
-                    const addition = Array(numToAdd).fill(0);
-                    old[song][i] = old[song][i].concat(addition);
-                }
-            } else if (maxBeats < length) {
-                const numToSub = length - maxBeats;
-                for (let i = 0; i < 16; i++) {
-                    old[song][i] = old[song][i].slice(0, length - numToSub);
-                }
-            }
-            old[song].push(title);
-
-            return [...old];
-        });
-    }, [maxBeats]);
-
-    useEffect(() => {
-        setMaxBeats(notes[song][0].length);
-    }, [song]);
-
-    //load notes from local storage if they are there
-    useEffect(() => {
-        
         const savedNotes = JSON.parse(localStorage.getItem("savedNotes"));
 
         if (localStorage.getItem("savedNotes")) {
@@ -59,27 +30,23 @@ function App() {
             localStorage.setItem("savedNotes", JSON.stringify(notes));
         }
     }, []);
+
+    //this adds or subtracts beats to the end of the song based off an updated maxBeats state
+    useEffect(() => {
+        setNotes((old) => updateNotesToMaxBeatsValue(old, song, maxBeats));
+    }, [maxBeats]);
+
+    //if the song changes, make sure that maxBeats is the same as the length of the song.
+    //this makes sure when a the user switches betwen sideA and sideB that the maxNotes changes to match the song
+    useEffect(() => {
+        setMaxBeats(notes[song][0].length);
+    }, [song]);
+
     //save notes to local storage on change
     useEffect(() => {
         if (notes[song][0].length !== maxBeats) setMaxBeats(notes[song][0].length);
         localStorage.setItem("savedNotes", JSON.stringify(notes));
     }, [notes]);
-
-    const clearSong = () => {
-        const userConfirm = window.confirm("Are you sure you would like to clear the entire song?");
-        if (userConfirm) {
-            const save = window.confirm("Would you like to save first?");
-            if (save) downloadSave(notes[song]);
-            setNotes((old) => {
-                const emptyNotes = musicFormatExample();
-                old[song] = emptyNotes[song];
-                setMaxBeats(emptyNotes[song][0].length);
-                return [...old];
-            });
-        } else {
-            return;
-        }
-    };
 
     return (
         <div className='App'>
@@ -89,22 +56,17 @@ function App() {
                 <Parameters setMaxBeats={setMaxBeats} maxBeats={maxBeats} />
             </div>
 
-            <div className='button-container'>
-                <PlaySongButton
-                    notes={notes}
-                    song={song}
-                    maxBeats={maxBeats}
-                    mousePos={mousePos}
-                    setMousePos={setMousePos}
-                />
-                <button onMouseDown={() => downloadScad(scadGen(notes))}>Download SCAD File</button>
-                <button onMouseDown={() => downloadSave(notes[song])}>Save This Song</button>
-                <button onMouseDown={clearSong}>Clear This Song</button>
-                <LoadFile setNotes={setNotes} song={song} setMaxBeats={setMaxBeats} />
-                <button onMouseDown={() => setStaffViewOn((old) => !old)}>
-                    {staffViewOn ? "Switch To Record View" : "Switch To Staff View"}
-                </button>
-            </div>
+            <ButtonContainer
+                notes={notes}
+                song={song}
+                setNotes={setNotes}
+                mousePos={mousePos}
+                setMousePos={setMousePos}
+                setMaxBeats={setMaxBeats}
+                maxBeats={maxBeats}
+                staffViewOn={staffViewOn}
+                setStaffViewOn={setStaffViewOn}
+            />
 
             <Staff
                 style={{ display: staffViewOn ? "" : "none" }}

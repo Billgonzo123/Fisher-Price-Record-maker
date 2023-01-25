@@ -78,7 +78,7 @@ export const notePinKey = [
     [27.95, 29.15],
 ];
 
-export const musicFormatExample = () => {
+export const emptySongs = () => {
     const numberOfBeats = 64;
     const emptySong = Array.from({length: 16}, _ => new Array(numberOfBeats).fill(0));
 
