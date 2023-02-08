@@ -4,22 +4,18 @@
   box-shadow: 20px 20px 5px rgba(0, 0, 0, 0.315);
   overflow: auto;
   background: linear-gradient(176deg, rgba(130,130,190,1) 0%, rgba(71,71,158,1) 100%);
+  padding: 20px;
+  margin: 30px;
+  width: 85vw;
   display: grid;
   grid-auto-rows: 20px;
   grid-auto-columns: 20px;
   grid-column-gap: 3px;
   grid-row-gap: 3px;
-  padding: 20px;
-  margin: 30px;
-width: 75vw
-
-
-
 }
 
 .staff-container {
   display: flex;
-  width: 100%;
   justify-content: center;
   align-items: center;
 }

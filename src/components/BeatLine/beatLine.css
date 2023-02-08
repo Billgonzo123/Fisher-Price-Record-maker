@@ -35,6 +35,6 @@ box-shadow: inset -2px -2px 3px   rgba(139, 139, 139, 0.555);
 
 @keyframes fadeBorder{
     from{
-        border: 4px solid rgba(65, 15, 65, 0)
+        border: 4px solid rgb(130, 66, 9)
     }
 }

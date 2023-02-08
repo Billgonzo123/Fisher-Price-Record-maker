@@ -21,12 +21,12 @@ synth.set({
 
 let intervals = [];
 
- const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos }) => {
+const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos }) => {
     const [repeat, setRepeat] = useState(false);
 
     const playSong = () => {
         intervals.forEach(clearInterval);
-        
+
         setMousePos([0, 0]);
         if (mousePos[0] === -1) return;
 
@@ -36,43 +36,16 @@ let intervals = [];
             intervals.push(
                 setTimeout(() => {
                     i !== maxBeats ? setMousePos([-1, i]) : setMousePos([0, 0]);
-                    if (notes[song][0][i])
-                        synth.triggerAttackRelease(noteName[0], "8n");
-                    if (notes[song][1][i])
-                        synth.triggerAttackRelease(noteName[1], "8n");
-                    if (notes[song][2][i])
-                        synth.triggerAttackRelease(noteName[2], "8n");
-                    if (notes[song][3][i])
-                        synth.triggerAttackRelease(noteName[3], "8n");
-                    if (notes[song][4][i])
-                        synth.triggerAttackRelease(noteName[4], "8n");
-                    if (notes[song][5][i])
-                        synth.triggerAttackRelease(noteName[5], "8n");
-                    if (notes[song][6][i])
-                        synth.triggerAttackRelease(noteName[6], "8n");
-                    if (notes[song][7][i])
-                        synth.triggerAttackRelease(noteName[7], "8n");
-                    if (notes[song][8][i])
-                        synth.triggerAttackRelease(noteName[8], "8n");
-                    if (notes[song][9][i])
-                        synth.triggerAttackRelease(noteName[9], "8n");
-                    if (notes[song][10][i])
-                        synth.triggerAttackRelease(noteName[10], "8n");
-                    if (notes[song][11][i])
-                        synth.triggerAttackRelease(noteName[11], "8n");
-                    if (notes[song][12][i])
-                        synth.triggerAttackRelease(noteName[12], "8n");
-                    if (notes[song][13][i])
-                        synth.triggerAttackRelease(noteName[13], "8n");
-                    if (notes[song][14][i])
-                        synth.triggerAttackRelease(noteName[14], "8n");
-                    if (notes[song][15][i])
-                        synth.triggerAttackRelease(noteName[15], "8n");
+
+                    //trigger each note of the column
+                    for (let row = 0; row <= 15; row++) {
+                        if (notes[song][row][i])
+                            synth.triggerAttackRelease(noteName[row], "8n");
+                    };
 
                     if (repeat && i === maxBeats) {
-                  
                         playSong();
-                    }
+                    };
                 }, beatLength * i)
             );
         }
