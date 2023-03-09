@@ -11,6 +11,7 @@ import Parameters from "./components/Parameters/Parameters";
 import RecordPreview from "./components/RecordPreview/RecordPreview.component";
 import SongTitle from "./components/SongTitle/SongTitle.component";
 import ButtonContainer from "./components/ButtonContainer/ButtonContainer.componet";
+import Instructions from "./components/Instructions/Instructions.component";
 
 function App() {
     const [notes, setNotes] = useState(emptySongs());
@@ -50,6 +51,7 @@ function App() {
 
     return (
         <div className='App'>
+            <Instructions/>
             <div className='header-container'>
                 <h1 className='title'>Fisher-Price Record Maker</h1>
                 <SongTitle notes={notes} setNotes={setNotes} song={song} setSong={setSong} />

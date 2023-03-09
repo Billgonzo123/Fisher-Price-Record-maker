@@ -14,7 +14,7 @@ const RecordPreview = ({ notes, maxBeats, song, mousePos, style }) => {
         ctx.translate(-250, -250);
         // move along y axis to reach the inner radius
 
-        /*the layout of the pins needs to be in a special order. This makes sure that the ins are drwn o fthe correct lines. */
+        /*the layout of the pins needs to be in a special order. This makes sure that the pins are drawn on the correct lines. */
         let space =
             i < 9 && i > 2 ? (150 / 11) * i - 10 : (150 / 11 / 2) * i + 2; //if its a pin for the first 2 outset patters its ether 2 pins or one  pin per line
         if (i >= 9) space = (150 / 11 / 2) * i + 42; //if its a pin on the inner 9 pins it shuld be two pins per line
