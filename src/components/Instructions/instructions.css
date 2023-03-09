@@ -1,4 +1,27 @@
-.instructions-continer{
+
+.absolutePosition{
+    position: absolute;
+    width: 100vw;
+    top: 0px;
+    left: 0px;
+}
+.instructions-continer {
+    position: sticky;
+    top: 0px;
+    right: 0px;
     border: 2px solid black;
     background-color: white;
+
+    
+}
+
+.instructions-continer > p {
+    margin: 0pt 3vw;
+}
+
+.infoButton {
+    display: block;
+    position: sticky;
+    top: 3px;
+    left: 0px;
 }
