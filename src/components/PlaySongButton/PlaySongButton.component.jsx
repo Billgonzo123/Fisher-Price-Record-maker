@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { noteName } from "../../util/noteKey";
 import * as Tone from "tone";
 
@@ -23,10 +23,52 @@ let intervals = [];
 
 export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos }) => {
     const [repeat, setRepeat] = useState(false);
+    const [hoverPlayState, setHoverPlayState] = useState(false);
+
+    useEffect(() => {
+        if (hoverPlayState && mousePos[0] >= 0) hoverPlay();
+    }, [mousePos[1]])
+
+
+    const hoverPlay = () => {
+        
+        if (notes[song][0][mousePos[1]])
+            synth.triggerAttackRelease(noteName[0], "8n");
+        if (notes[song][1][mousePos[1]])
+            synth.triggerAttackRelease(noteName[1], "8n");
+        if (notes[song][2][mousePos[1]])
+            synth.triggerAttackRelease(noteName[2], "8n");
+        if (notes[song][3][mousePos[1]])
+            synth.triggerAttackRelease(noteName[3], "8n");
+        if (notes[song][4][mousePos[1]])
+            synth.triggerAttackRelease(noteName[4], "8n");
+        if (notes[song][5][mousePos[1]])
+            synth.triggerAttackRelease(noteName[5], "8n");
+        if (notes[song][6][mousePos[1]])
+            synth.triggerAttackRelease(noteName[6], "8n");
+        if (notes[song][7][mousePos[1]])
+            synth.triggerAttackRelease(noteName[7], "8n");
+        if (notes[song][8][mousePos[1]])
+            synth.triggerAttackRelease(noteName[8], "8n");
+        if (notes[song][9][mousePos[1]])
+            synth.triggerAttackRelease(noteName[9], "8n");
+        if (notes[song][10][mousePos[1]])
+            synth.triggerAttackRelease(noteName[10], "8n");
+        if (notes[song][11][mousePos[1]])
+            synth.triggerAttackRelease(noteName[11], "8n");
+        if (notes[song][12][mousePos[1]])
+            synth.triggerAttackRelease(noteName[12], "8n");
+        if (notes[song][13][mousePos[1]])
+            synth.triggerAttackRelease(noteName[13], "8n");
+        if (notes[song][14][mousePos[1]])
+            synth.triggerAttackRelease(noteName[14], "8n");
+        if (notes[song][15][mousePos[1]])
+            synth.triggerAttackRelease(noteName[15], "8n");
+    }
 
     const playSong = () => {
         intervals.forEach(clearInterval);
-        
+
         setMousePos([0, 0]);
         if (mousePos[0] === -1) return;
 
@@ -70,7 +112,7 @@ export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos })
                         synth.triggerAttackRelease(noteName[15], "8n");
 
                     if (repeat && i === maxBeats) {
-                  
+
                         playSong();
                     }
                 }, beatLength * i)
@@ -91,7 +133,18 @@ export const PlaySongButton = ({ notes, song, maxBeats, mousePos, setMousePos })
                 type='checkbox'
                 name='repeatBox'
                 onChange={handleCheck}
-                checked={repeat}></input>
+                checked={repeat}>
+
+            </input>
+
+            <label htmlFor="repeatBox" className="repeat-label"> Hover Play </label>
+            <input
+                className="repeate-checkbox"
+                type='checkbox'
+                name='repeatBox'
+                onChange={() => { setHoverPlayState(old => (!old)) }}
+                checked={hoverPlayState}>
+            </input>
 
             <button type='button' onClick={playSong}>
                 Play/Stop
