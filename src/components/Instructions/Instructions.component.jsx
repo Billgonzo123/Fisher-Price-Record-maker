@@ -12,9 +12,9 @@ const Instructions = () => {
                     <div className='absolutePosition'>
                         <div className='instructions-continer'>
                             <button className='infoButton' type='button' onClick={() => setInstructionsOpen(old => !old)}>X</button>
-                            <h1>Instructions</h1>
+                            <h1>How To</h1>
                             <p style={{ whiteSpace: 'pre-wrap', textAlign: 'justify' }}>{`
-- Select the number of total beats you need. It takes 25 seconds for the record to spin around once, so the tempo of your song is determined by how many beats you use.
+- Select the number of total beats you need. It takes 25 seconds for the record to spin around once, so the tempo of your song is determined by how many beats you use (ie. 25 beats = 1sec per beat)
 - Use the mouse to turn on or off beats for each note as needed
 - Press Play/Stop to listen to what your song sounds like
 - The X above each column will clear all notes for that column
